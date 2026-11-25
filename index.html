@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sonora</title>
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f1013;color:#ececef;font-family:system-ui,sans-serif;text-align:center;padding:24px;box-sizing:border-box}
+h1{font-size:28px;margin:0 0 8px}
+p{color:#9a9aa3;margin:0 0 24px}
+a{display:inline-block;padding:16px 32px;border-radius:14px;background:#7c9cff;color:#0f1013;font-weight:700;font-size:18px;text-decoration:none}
+</style>
+</head>
+<body>
+<div>
+<h1 id="t">Listo</h1>
+<p id="m">Regresando a Sonora...</p>
+<a id="b" href="#">Volver a Sonora</a>
+</div>
+<script>
+var q = location.search.substring(1);
+var u = "intent://spotify-callback?" + q + "#Intent;scheme=sonora;package=com.lipe.sonora;end";
+document.getElementById("b").href = u;
+if (!q) {
+  document.getElementById("t").textContent = "Sonora";
+  document.getElementById("m").textContent = "Esta pagina solo se usa para iniciar sesion de Spotify en Sonora.";
+  document.getElementById("b").style.display = "none";
+} else {
+  setTimeout(function () { location.href = u; }, 300);
+}
+</script>
+</body>
+</html>
